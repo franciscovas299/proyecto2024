@@ -57,7 +57,7 @@ const DetalleCurso = () => {
                 url = '/curso/phpmysql';
                 break;
             default:
-                url = '/mis-cursos'; // URL por defecto
+                url = '/miscursos'; // URL por defecto
                 break;
         }
         navigate(url);

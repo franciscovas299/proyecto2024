@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-const Miscursos = () => {
+const MisCursos = () => {
     const [cursosMatriculados, setCursosMatriculados] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const storedCursos = JSON.parse(localStorage.getItem('cursosMatriculados')) || [];
@@ -22,7 +23,7 @@ const Miscursos = () => {
 
     const verDetalles = (curso) => {
         localStorage.setItem('cursoActual', curso);
-        window.location.href = 'Detallecurso';
+        navigate('/detallecurso');
     };
 
     return (
@@ -59,4 +60,4 @@ const Miscursos = () => {
     );
 };
 
-export default Miscursos;
+export default MisCursos;

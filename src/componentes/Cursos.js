@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Cursos = () => {
     const [cursosMatriculados, setCursosMatriculados] = useState([]);
     const [busqueda, setBusqueda] = useState('');
     const [resultadosBusqueda, setResultadosBusqueda] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const storedCursos = JSON.parse(localStorage.getItem('cursosMatriculados')) || [];
@@ -40,7 +41,7 @@ const Cursos = () => {
 
     const verDetalles = (curso) => {
         localStorage.setItem('cursoActual', curso);
-        window.location.href = 'Detallecurso';
+        navigate('/detallecurso');
     };
 
     const buscarCurso = (e) => {
@@ -121,7 +122,7 @@ const Cursos = () => {
                     </div>
                 </section>
             </main>
-            <footer className="pr-footer">z
+            <footer className="pr-footer">
                 <div className="pr-container">
                     <p className="pr-text"></p>
                 </div>
